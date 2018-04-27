@@ -1,0 +1,9 @@
+aws/.terraform/
+node_modules/
+.idea/
+.vscode/
+*.log
+*.pid
+*.node-*
+.DS_Store
+package-lock.json

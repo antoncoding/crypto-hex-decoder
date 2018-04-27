@@ -1,0 +1,15 @@
+{
+  "name": "blockchain-utils",
+  "version": "1.0.0",
+  "description": "blockchain utils - helper functions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "marcogbarcellos",
+  "license": "MIT",
+  "dependencies": {
+    "bitcoinjs-lib": "^3.3.2",
+    "rlp": "^2.0.0"
+  }
+}
