@@ -3,21 +3,21 @@ const RLP = require('rlp');
 
 function toJSON(data) {
     if (data instanceof Array) {
-        return data.map(toJSON);
+        return data.map(toJSON)
     }
     if (!Buffer.isBuffer(data)) {
-        throw Error("Invalid Data, Expect Buffer.");    
+        throw Error("Invalid Data, Expect Buffer.")
     } 
-    return '0x' + data.toString('hex');
+    return '0x' + data.toString('hex')
 }
 
 module.exports = function(hex) {
     
-    const decodedRawTx = RLP.decode(hex);    
+    const decodedRawTx = RLP.decode(hex)
     
     // // RAW TRANSACTION Fields: Nonce, Gas Price, Start Gas, To, Value, Input, v, r, s
     if (decodedRawTx.length != 9) {
-        throw Error('RLP Decode Error: Invalid ETH Tx');
+        throw Error('RLP Decode Error: Invalid ETH Tx')
     }    
 
     return {
@@ -31,6 +31,6 @@ module.exports = function(hex) {
         v: toJSON(decodedRawTx[6]),
         r: toJSON(decodedRawTx[7]),
         s: toJSON(decodedRawTx[8])
-    };
+    }
     
-};
+}
