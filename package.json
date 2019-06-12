@@ -14,15 +14,16 @@
     "tx",
     "rawtx",
     "blockchain",
-    "doge",
-    "dash",
-    "zcash"
+    "decode"
   ],
   "license": "ISC",
   "dependencies": {
     "bitcoinjs-lib": "5.0.5",
     "rlp": "^2.0.0",
-    "ripple-binary-codec": "^0.2.1"
+    "ripple-binary-codec": "^0.2.1",
+    "is_js": "^0.9.0",
+    "protocol-buffers-encodings": "^1.1.0",
+    "safe-buffer": "^5.1.2"
   },
   "directories": {
     "test": "test"
