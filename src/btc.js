@@ -6,7 +6,16 @@ module.exports = function (hex) {
     
     tx.ins.forEach(input=>{
         input.hash = input.hash.toString('hex')
-        input.sig = bitcoinjs.script.signature.decode(input.script)
+        input.script = input.script.toString('hex')
+        
+        // Decode Witness Data
+        if (input.witness.length > 0){
+            let {signature, hashType} = bscript.signature.decode(input.witness[0])
+            signature = signature.toString('hex')
+            let publicKey = input.witness[1].toString('hex')
+            input.witness = {signature, publicKey, hashType}
+        }
+        
     })
 
     tx.outs.forEach(output => {
@@ -24,4 +33,3 @@ module.exports = function (hex) {
 };
 
 const reducer = (a, b) => a + b
-
