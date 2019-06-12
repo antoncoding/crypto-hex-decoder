@@ -1,13 +1,12 @@
-const bitcoin = require('bitcoinjs-lib');
-const bscript = bitcoin.script
-const bscriptSig = bitcoin.script.signature
+const bitcoinjs = require('bitcoinjs-lib');
+const bscript = bitcoinjs.script
 
 module.exports = function (hex) {
-    let tx = bitcoin.Transaction.fromHex(hex)
+    let tx = bitcoinjs.Transaction.fromHex(hex)
     
     tx.ins.forEach(input=>{
         input.hash = input.hash.toString('hex')
-        // input.sig = bscriptSig.decode(input.script)
+        input.sig = bitcoinjs.script.signature.decode(input.script)
     })
 
     tx.outs.forEach(output => {
