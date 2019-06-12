@@ -21,7 +21,8 @@
   "license": "ISC",
   "dependencies": {
     "bitcoinjs-lib": "5.0.5",
-    "rlp": "^2.0.0"
+    "rlp": "^2.0.0",
+    "ripple-binary-codec": "^0.2.1"
   },
   "directories": {
     "test": "test"
