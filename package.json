@@ -20,7 +20,7 @@
   ],
   "license": "ISC",
   "dependencies": {
-    "bitcoinjs-lib": "^3.3.2",
+    "bitcoinjs-lib": "5.0.5",
     "rlp": "^2.0.0"
   },
   "directories": {
