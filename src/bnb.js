@@ -1,20 +1,11 @@
 const unMarshalBinaryLengthPrefixed = require('./utils/amino')
+const TYPE = require('./utils/types')
 
-module.exports = function(hex) {
-    const decodedRawTx = unMarshalBinaryLengthPrefixed(hex, result)
+/**
+ * @param hex
+ * @param type Send, Order or Cancel
+ */
+module.exports = function(hex, type) {
+    let {val: decodedRawTx} = unMarshalBinaryLengthPrefixed(Buffer.from(hex,'hex'), TYPE[type])
     return decodedRawTx
 }
-
-class Msg {
-    constructor(opts){
-      opts = opts || {}
-      this.string = opts.address || ""
-      this.buf = opts.buf || Buffer.alloc(0)
-      this.price = opts.price || 0
-      this.bool = opts.timeinforce || false
-      this.quantity = opts.quantity || 0
-      // this.coin = []
-    }
-}
-
-const result = new Msg()
