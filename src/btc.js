@@ -39,8 +39,11 @@ module.exports = function (hex) {
   return tx;
 };
 
-function reducer(a, b){ return a + b}
-
+/**
+ * Sum value (satoshi) in all outputs
+ * @param {Transaction} tx
+ * @returns {number} satoshis 
+ */
 function sumOutputValue (tx){
   let totalValue = 0;
   if (tx && tx.outs && tx.outs.length > 0) {
@@ -49,9 +52,16 @@ function sumOutputValue (tx){
   return totalValue
 }
 
+/**
+ * convert witness hex array to object
+ * @param {Array} witness 
+ * @return {signature: string, publicKey: string, hashType:number}
+ */
 function decodeWitness(witness){
   const { signature: sigBuf, hashType } = bscript.signature.decode(witness[0])
   const signature = sigBuf.toString('hex')
   const publicKey = witness[1].toString('hex')
   return { signature, publicKey, hashType }
 }
+
+function reducer(a, b){ return a + b}
