@@ -2,48 +2,56 @@ const bitcoinjs = require('bitcoinjs-lib');
 const bscript = bitcoinjs.script
 
 module.exports = function (hex) {
-    let tx = bitcoinjs.Transaction.fromHex(hex)
-    
-    tx.ins.forEach(input=>{
-        // Decode Witness Data
-        if (input.witness.length > 0){
-            input.type = 'Segwit'
-            let {signature, hashType} = bscript.signature.decode(input.witness[0])
-            signature = signature.toString('hex')
-            let publicKey = input.witness[1].toString('hex')
-            input.witness = {signature, publicKey, hashType}
-            
-            input.script = {
-                hex: input.script.toString('hex')
-            }
-        } else {
-            let decodedScript = bscript.toASM(input.script).split(" ")
-            if(decodedScript.length === 2){
-                input.type = 'P2PKH'
-                input.script = {
-                    signature: decodedScript[0],
-                    publicKey: decodedScript[1]
-                }
-            }
-            else{
-                intput.script = {hex:decodedScript}
-            }
+  let tx = bitcoinjs.Transaction.fromHex(hex)
+  
+  tx.ins.forEach(input=>{
+    if (input.witness.length > 0){
+      input.type = 'Segwit'
+      input.witness = decodeWitness(input.witness)
+      input.script = {
+        hex: input.script.toString('hex')
+      }
+    } else {
+      let decodedScript = bscript.toASM(input.script).split(" ")
+      if(decodedScript.length === 2){
+        input.type = 'P2PKH'
+        input.script = {
+          signature: decodedScript[0],
+          publicKey: decodedScript[1]
         }
-        input.hash = input.hash.toString('hex')
-    })
-
-    tx.outs.forEach(output => {
-        output.script = bscript.toASM(output.script)
-    })
-
-    // Sum output values
-    let totalValue = 0;
-    if (tx && tx.outs && tx.outs.length > 0) {
-        totalValue = tx.outs.map(out => out.value).reduce(reducer)
-        tx.totalValue = totalValue
+      }
+      else{
+        input.type = 'Unkown'
+        intput.script = {
+          hex: decodedScript
+        }
+      }
     }
+    input.hash = input.hash.toString('hex')
+  })
 
-    return tx;
+  tx.outs.forEach(output => {
+    output.script = bscript.toASM(output.script)
+  })
+
+  tx.totalValue = sumOutputValue(tx)
+
+  return tx;
 };
 
-const reducer = (a, b) => a + b
+function reducer(a, b){ return a + b}
+
+function sumOutputValue (tx){
+  let totalValue = 0;
+  if (tx && tx.outs && tx.outs.length > 0) {
+    totalValue = tx.outs.map(out => out.value).reduce(reducer)
+  }
+  return totalValue
+}
+
+function decodeWitness(witness){
+  const { signature: sigBuf, hashType } = bscript.signature.decode(witness[0])
+  const signature = sigBuf.toString('hex')
+  const publicKey = witness[1].toString('hex')
+  return { signature, publicKey, hashType }
+}
