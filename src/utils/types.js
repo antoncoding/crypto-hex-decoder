@@ -1,26 +1,48 @@
 module.exports={
-  Order: {
-    msg: [{
-      sender: Buffer.from([]),
-      id: '',
-      symbol: '',
-      ordertype: 0,
-      side: 0,
-      price: 0,
-      quantity: 0,
-      timeinforce: 0,
-      msgType: 'NewOrderMsg'
-    }],
-    signatures: [{
+  PlaceOrder: {
+    msg: [
+      {
+        sender: Buffer.from([]),
+        id: "",
+        symbol: "",
+        ordertype: 0,
+        side: 0,
+        price: 0,
+        quantity: 0,
+        timeinforce: 0,
+        msgType: "NewOrderMsg"
+      }
+    ],
+    signatures:[{
       pub_key: Buffer.from([]),
       signature: Buffer.from([]),
       account_number: 0,
       sequence: 0
+    }],  
+    memo: "",
+    source: 0,
+    data: "",
+    msgType:"StdTx"
+  },
+  CancelOrder: {    
+    msg: [{
+      sender: Buffer.from([]),
+      symbol: "",
+      refid: "",
+      msgType: "CancelOrderMsg"
+    }],
+    signatures: [{
+      pub_key: Buffer.from([]), //Buffer
+      signature:  Buffer.from([]), //Buffer
+      account_number: 0,
+      sequence: 0
     }],
     memo: "",
+    source: 0,
+    data: "",
     msgType: "StdTx"
   },
-  Send:{
+  Transfer:{
     msg:[{
       inputs:
       [
