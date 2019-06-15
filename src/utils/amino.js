@@ -14,13 +14,28 @@ const offset = varType.encodingLength(val)
 return { val, offset }
 }
 
+module.exports=function unMarshalBinaryLengthPrefixed (bytes, type){
+  if(bytes.length === 0)
+    throw new TypeError("Cannot decode empty bytes")
+
+  // read byte-length prefix
+  const{ offset: len } = decoder(bytes, varint)
+
+  if(len < 0)
+    throw new Error(`Error reading msg byte-length prefix: got code ${len}`)
+  
+  bytes = bytes.slice(len)
+
+  return unMarshalBinaryBare(bytes, type)
+}
+
 /**
  * js amino UnmarshalBinaryLengthPrefixed
  * @param {Buffer} bytes
  * @param {Object} type
  * @returns {Object} 
  *  */
-module.exports = function unMarshalBinaryLengthPrefixed(bytes, type){
+function unMarshalBinaryBare(bytes, type){
   if(!is.object(type)) 
     throw new TypeError("type should be object")
   
@@ -102,9 +117,9 @@ const decodeObjectBinary = (bytes, type, isLengthPrefixed) => {
 
       lastFieldNum = fieldNum
 
-      // if(index+1 !== fieldNum) {
-      //   throw new Error("field number is not expected")
-      // }
+      if(index+1 !== fieldNum) {
+        throw new Error("field number is not expected")
+      }
 
       const typeWanted = typeToTyp3(type[key])
       
