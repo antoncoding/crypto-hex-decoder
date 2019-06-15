@@ -1,17 +1,21 @@
 {
-  "name": "transaction-hex-decoder",
-  "version": "1.0.2",
-  "description": "transaction-hex-decoder - Decode Transactions given their HEX",
+  "name": "raw-transaction-hex-decoder",
+  "version": "1.1.2",
+  "description": "raw-transaction-hex-decoder - Decode BTC, ETH, XRP, BNB Raw Transactions HEX",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "marcogbarcellos",
+  "author": "anton",
   "keywords": [
     "btc",
     "eth",
     "transactions",
     "tx",
+    "xrp",
+    "ripple",
+    "binance",
+    "bnb",
     "rawtx",
     "blockchain",
     "decode"
@@ -31,10 +35,10 @@
   "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/marcogbarcellos/transaction-hex-decoder.git"
+    "url": "git+https://github.com/antoncoding/transaction-hex-decoder.git"
   },
   "bugs": {
-    "url": "https://github.com/marcogbarcellos/transaction-hex-decoder/issues"
+    "url": "https://github.com/antoncoding/transaction-hex-decoder/issues"
   },
-  "homepage": "https://github.com/marcogbarcellos/transaction-hex-decoder#readme"
+  "homepage": "https://github.com/antoncoding/transaction-hex-decoder#readme"
 }
