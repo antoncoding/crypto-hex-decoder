@@ -4,7 +4,7 @@
   "description": "Decode BTC, ETH, XRP, BNB Raw Transactions HEX",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -t"
   },
   "author": "anton",
   "keywords": [
@@ -23,10 +23,11 @@
   "license": "ISC",
   "dependencies": {
     "bitcoinjs-lib": "5.0.5",
-    "rlp": "^2.0.0",
-    "ripple-binary-codec": "^0.2.1",
     "is_js": "^0.9.0",
+    "jest": "^24.8.0",
     "protocol-buffers-encodings": "^1.1.0",
+    "ripple-binary-codec": "^0.2.1",
+    "rlp": "^2.0.0",
     "safe-buffer": "^5.1.2"
   },
   "directories": {

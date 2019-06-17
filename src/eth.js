@@ -28,9 +28,9 @@ module.exports = function(hex) {
         valueInWei: parseInt(toJSON(decodedRawTx[4])),
         valueInEther: parseInt(toJSON(decodedRawTx[4]))/Math.pow(10,18),
         inputData: toJSON(decodedRawTx[5]),
-        v: toJSON(decodedRawTx[6]),
-        r: toJSON(decodedRawTx[7]),
-        s: toJSON(decodedRawTx[8])
+        v: decodedRawTx[6],
+        r: decodedRawTx[7],
+        s: decodedRawTx[8]
     }
     
 }
