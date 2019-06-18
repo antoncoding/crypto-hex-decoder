@@ -1,6 +1,6 @@
 {
   "name": "raw-transaction-hex-decoder",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "Decode BTC, ETH, XRP, BNB Raw Transactions HEX",
   "main": "index.js",
   "scripts": {
