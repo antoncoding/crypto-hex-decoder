@@ -26,3 +26,73 @@ test('bnb cancelOrder', ()=>{
     expect(decodedTx).toHaveProperty('signatures')
     expect(decodedTx).toHaveProperty('msgType')
 })
+
+test('bnb base64', ()=>{
+    let txn = "xgHwYl3uCkwqLIf6CiIKFJGTdSD0BFj1tBTSZ5YbRsGXid1wEgoKA0JOQhDA0eEjEiIKFEYLfJ9Eg666OgnnNNBoO+8TYkdaEgoKA0JOQhDA0eEjEnAKJuta6YchA1bgpYA4mm/SzJHNUlxtWk2AVK9w3xdITlhnj59XSgtNEkBiVAL8/DmusweaMjwhhC4FKIedREnOsvbSxJjLXp0Ti2MI8K03X0tuFxpBlQSoHoW4CkIs+sJnPsSuT0HzAVVLGDMg6u8EIAI=";
+    let txnDt = Buffer.from(txn, "base64").toString('hex');
+    
+    class Token {
+    constructor(opts) {
+        opts = opts || {}
+        this.denom = opts.denom || ""
+        this.amount = opts.amount || 0
+    }
+    }
+
+    class Input {
+    constructor(opts) {
+        opts = opts || {}
+        this.address = opts.address || Buffer.alloc(0)
+        this.coins = opts.coins || [new Token()]
+    }
+    }
+
+    class Output {
+    constructor(opts) {
+        opts = opts || {}
+        this.address = opts.address || Buffer.alloc(0)
+        this.coins = opts.coins || [new Token()]
+    }
+    }
+
+    class MsgSend {
+    constructor(opts) {
+        opts = opts || {}
+        this.inputs = opts.inputs || new Input()
+        this.outputs = opts.outputs || new Output()
+        
+        this.msgType = "MsgSend"
+    }
+    }
+
+    class StdSignature {
+    constructor(opts) {
+        opts = opts || {}
+        this.pub_key = opts.pub_key || Buffer.from([])
+        this.signature = opts.signature || Buffer.from([])
+        this.account_number = opts.account_number || 0
+        this.sequence = opts.sequence || 0
+    }
+    }
+
+    class stdTx {
+        constructor(opts) {
+            opts = opts || {}
+            this.msgs = opts.msgs || [new MsgSend()]
+            this.signatures = opts.signatures || new StdSignature()
+            this.memo = opts.memo || ""
+            this.source = opts.source || 0
+            this.data = opts.data || Buffer.alloc(0)
+            
+            this.msgType = "stdTx"
+        }
+    }
+
+    const decodeType = new stdTx()
+    let decodedTx = txHexDecoder.decodeBnbRawTx(txnDt, decodeType)
+    expect(typeof decodedTx).toBe('object')
+    expect(decodedTx).toHaveProperty('msgs')
+    expect(decodedTx).toHaveProperty('signatures')
+    expect(decodedTx).toHaveProperty('msgType')
+}
+)
