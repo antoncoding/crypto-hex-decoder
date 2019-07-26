@@ -13,7 +13,7 @@ function toJSON(data) {
 
 module.exports = function(hex) {
     
-    const decodedRawTx = RLP.decode(Buffer.from(hex, 'hex'))
+    const decodedRawTx = RLP.decode(hex)
     
     // // RAW TRANSACTION Fields: Nonce, Gas Price, Start Gas, To, Value, Input, v, r, s
     if (decodedRawTx.length != 9) {
