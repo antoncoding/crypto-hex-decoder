@@ -9,11 +9,10 @@
   "author": "anton",
   "keywords": [
     "btc",
-    "eth",
+    "address",
+    "cryptocurrency",
     "transactions",
     "tx",
-    "xrp",
-    "ripple",
     "binance",
     "bnb",
     "rawtx",
@@ -27,8 +26,6 @@
     "is_js": "^0.9.0",
     "jest": "^24.8.0",
     "protocol-buffers-encodings": "^1.1.0",
-    "ripple-binary-codec": "^0.2.1",
-    "rlp": "^2.0.0",
     "safe-buffer": "^5.1.2"
   },
   "directories": {
