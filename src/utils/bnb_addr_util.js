@@ -12,4 +12,16 @@ function encodeAddress(buff, testnet= false) {
     return bech32.encode(prefix, words)
 }
 
-module.exports = encodeAddress;
+/**
+ * Decodes an address in bech32 format.
+ * @param {string} value the bech32 address to decode
+ */
+function decodeAddress(value){
+    const decodeAddress = bech32.decode(value)
+    return Buffer.from(bech32.fromWords(decodeAddress.words))
+}
+
+module.exports = {
+    decodeAddress,
+    encodeAddress
+};

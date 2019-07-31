@@ -111,21 +111,21 @@ const decodeObjectBinary = (bytes, type, isLengthPrefixed) => {
       //if this field is default value, continue
       if(index+1 < fieldNum || fieldNum < 0) return
 
-      if(fieldNum <= lastFieldNum) {
-        throw new Error(`encountered fieldNum: ${fieldNum}, but we have already seen fnum: ${lastFieldNum}`)
-      }
+      // if(fieldNum <= lastFieldNum) {
+      //   throw new Error(`encountered fieldNum: ${fieldNum}, but we have already seen fnum: ${lastFieldNum}`)
+      // }
 
       lastFieldNum = fieldNum
 
-      if(index+1 !== fieldNum) {
-        throw new Error("field number is not expected")
-      }
+      // if(index+1 !== fieldNum) {
+      //   throw new Error("field number is not expected")
+      // }
 
       const typeWanted = typeToTyp3(type[key])
       
-      if(typ !== typeWanted) {
-        throw new Error("field type is not expected")
-      }
+      // if(typ !== typeWanted) {
+      //   throw new Error("field type is not expected")
+      // }
 
       //remove 1 byte of type
       bytes = bytes.slice(fieldNumLen)
