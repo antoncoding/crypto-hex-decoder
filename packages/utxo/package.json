@@ -1,0 +1,47 @@
+{
+  "name": "@crypto-hex-decoder/btc",
+  "version": "2.0.0",
+  "description": "Transaction hex decoder for Bitcoin and other UTXO-based crypto",
+  "main": "index.js",
+  "author": "anton",
+  "scripts": {
+    "test": "jest -t"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "keywords": [
+    "utxo",
+    "address",
+    "cryptocurrency",
+    "transactions",
+    "tx",
+    "hex",
+    "bitcoin",
+    "litecoin",
+    "omni",
+    "bitcoincash",
+    "bch",
+    "ltc",
+    "btc",
+    "rawtx",
+    "blockchain",
+    "decode",
+    "scriptPubKey"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "bitcoinjs-lib": "5.0.5"
+  },
+  "devDependencies": {
+    "jest": "^24.9.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/antoncoding/raw-transaction-hex-decoder.git"
+  },
+  "bugs": {
+    "url": "https://github.com/antoncoding/raw-transaction-hex-decoder/issues"
+  },
+  "homepage": "https://github.com/antoncoding/raw-transaction-hex-decoder#readme"
+}
