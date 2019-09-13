@@ -1,4 +1,22 @@
-# Binance Chain Raw Transaction Decode
+# Binance Raw Transaction Decode
+
+![npm](https://img.shields.io/npm/v/@crypto-hex-decoder/bnb.svg)
+
+Amino decoder for decoding binance chain hex transactions.
+
+## Installation
+
+```shell
+npm i @crypto-hex-decoder/bnb
+```
+
+## Run Tests
+
+```shell
+npm test
+```
+
+## Usage
 
 ```javascript
 

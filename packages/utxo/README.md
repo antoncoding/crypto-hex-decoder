@@ -1,5 +1,21 @@
 # UTXO Raw Tx
 
+![npm](https://img.shields.io/npm/v/@crypto-hex-decoder/utxo.svg)
+
+## Installation
+
+```shell
+npm i @crypto-hex-decoder/bnb
+```
+
+## Tests
+
+```shell
+npm test
+```
+
+## Usage
+
 ```javascript
 const utxoDecoder = require("@crypto-hex-decoder/utxo");
 
