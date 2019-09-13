@@ -1,20 +1,12 @@
 # Raw Transaction Hex Decoder
 
-<a href="https://nodei.co/npm/raw-transaction-hex-decoder"><img src="https://nodei.co/npm/raw-transaction-hex-decoder.png"></a>
+Originally forked from [marcogbarcellos](https://github.com/marcogbarcellos/transaction-hex-decoder)'s repo, now maintaining it myself.
 
-This library's methods return information of a transaction, given this transaction `HEX` as input.
-
-Originally forked from [marcogbarcellos](https://github.com/marcogbarcellos/transaction-hex-decoder)'s repo. Now maintaining it myself and will focus on BNB transaction decode for now. If you want this library to support other coins, please open an issue :)
+If you want this library to support other coins, please open an issue :)
 
 ## Supported coins
 
-- Binance
-- Bitcoin (UTXO Models)
-- Ripple (deprecated in `1.3.0`)
-- Ethereum (deprecate in `1.3.0`)
+Please find respective documentation for each coin:
 
-## Install
-
-```shell
-npm install raw-transaction-hex-decoder
-```
+- [![npm](https://img.shields.io/npm/v/@crypto-hex-decoder/bnb.svg)](https://www.npmjs.com/package/@crypto-hex-decoder/bnb) [@crypto-hex-decoder/bnb](./packages/bnb)
+- [![npm](https://img.shields.io/npm/v/@crypto-hex-decoder/utxo.svg)](https://www.npmjs.com/package/@crypto-hex-decoder/utxo) [@crypto-hex-decoder/utxo](./packages/utxo)
