@@ -1,6 +1,8 @@
-# UTXO Raw Tx
+# UTXO Raw transaction Decoder
 
-![npm](https://img.shields.io/npm/v/@crypto-hex-decoder/utxo.svg)
+![npm](https://img.shields.io/npm/v/@crypto-hex-decoder/utxo.svg) ![license](https://img.shields.io/npm/l/@crypto-hex-decoder/utxo) ![](https://img.shields.io/snyk/vulnerabilities/npm/@crypto-hex-decoder/utxo) ![](https://img.shields.io/bundlephobia/min/@crypto-hex-decoder/utxo)
+
+This library can be used to decode BTC, LTC, BCH, and other UTXO-based cryptocurrecy hex transaction.
 
 ## Installation
 

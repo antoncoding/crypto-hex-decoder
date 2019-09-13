@@ -1,5 +1,7 @@
 # Raw Transaction Hex Decoder
 
+![contributers](https://img.shields.io/github/contributors/antoncoding/crypto-hex-decoder) ![](https://img.shields.io/github/issues/antoncoding/crypto-hex-decoder)
+
 Originally forked from [marcogbarcellos](https://github.com/marcogbarcellos/transaction-hex-decoder)'s repo, now maintaining it myself.
 
 If you want this library to support other coins, please open an issue :)

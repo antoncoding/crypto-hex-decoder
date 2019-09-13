@@ -1,6 +1,6 @@
 # Binance Raw Transaction Decode
 
-![npm](https://img.shields.io/npm/v/@crypto-hex-decoder/bnb.svg)
+![npm](https://img.shields.io/npm/v/@crypto-hex-decoder/bnb.svg) ![license](https://img.shields.io/npm/l/@crypto-hex-decoder/bnb) ![](https://img.shields.io/snyk/vulnerabilities/npm/@crypto-hex-decoder/bnb) ![](https://img.shields.io/bundlephobia/min/@crypto-hex-decoder/bnb)
 
 Amino decoder for decoding binance chain hex transactions.
 
