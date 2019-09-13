@@ -1,0 +1,39 @@
+{
+    "name": "@crypto-hex-decoder/bnb",
+    "version": "2.0.0",
+    "description": "Binance mainnet transaction hex decoder.",
+    "main": "index.js",
+    "scripts": {
+      "test": "jest -t"
+    },
+    "author": "anton",
+    "keywords": [
+      "address",
+      "cryptocurrency",
+      "transactions",
+      "tx",
+      "hex",
+      "binance",
+      "bnb",
+      "rawtx",
+      "blockchain",
+      "decode"
+    ],
+    "license": "ISC",
+    "dependencies": {
+      "bech32": "^1.1.3",
+      "is_js": "^0.9.0",
+      "jest": "^24.8.0",
+      "protocol-buffers-encodings": "^1.1.0",
+      "safe-buffer": "^5.1.2"
+    },
+    "repository": {
+      "type": "git",
+      "url": "git+https://github.com/antoncoding/raw-transaction-hex-decoder.git"
+    },
+    "bugs": {
+      "url": "https://github.com/antoncoding/raw-transaction-hex-decoder/issues"
+    },
+    "homepage": "https://github.com/antoncoding/raw-transaction-hex-decoder#readme"
+  }
+  
