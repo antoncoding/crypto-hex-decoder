@@ -34,10 +34,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/antoncoding/raw-transaction-hex-decoder.git"
+    "url": "git+https://github.com/antoncoding/crypto-hex-decoder.git"
   },
   "bugs": {
-    "url": "https://github.com/antoncoding/raw-transaction-hex-decoder/issues"
+    "url": "https://github.com/antoncoding/crypto-hex-decoder/issues"
   },
-  "homepage": "https://github.com/antoncoding/raw-transaction-hex-decoder#readme"
+  "homepage": "https://github.com/antoncoding/crypto-hex-decoder/packages/bnb#readme"
 }
