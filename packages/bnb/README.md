@@ -1,6 +1,6 @@
 # Binance Raw Transaction Decode
 
-![npm](https://img.shields.io/npm/v/@crypto-hex-decoder/bnb.svg) ![license](https://img.shields.io/npm/l/@crypto-hex-decoder/bnb) ![](https://img.shields.io/snyk/vulnerabilities/npm/@crypto-hex-decoder/bnb) ![](https://img.shields.io/bundlephobia/min/@crypto-hex-decoder/bnb)
+![npm](https://img.shields.io/npm/v/@crypto-hex-decoder/bnb.svg) ![license](https://img.shields.io/npm/l/@crypto-hex-decoder/bnb) ![vulnerabilities](https://img.shields.io/snyk/vulnerabilities/npm/@crypto-hex-decoder/bnb) ![size](https://img.shields.io/bundlephobia/min/@crypto-hex-decoder/bnb)
 
 Amino decoder for decoding binance chain hex transactions.
 
@@ -22,7 +22,7 @@ npm test
 
 const bnbDecoder = require("@crypto-hex-decoder/bnb");
 let bnbSend = 'ce01f0625dee0a4a2a2c87fa0a210a14d1a42a815fc6a339ecd8bfcd093dd1a835f40e1312090a03424e4210e8922612210a14e0a17a3ec9ddfd1d9c8b4e17df0622c679ffa89812090a03424e4210e89226126f0a26eb5ae987210298013db8d32124d1c11570cd37f8e52297bd18ea561cf990907f7aa03e486d6c1240ee378db6506d180dee42fdc54157c562fdd4d047a9c1c33ef407af6bd435a9023a2e0ebdb3061943a88b3a434d6b2ba8a4c970db218bd38fecf9796de973a43d182720cc011a097369676e61747572652001';
-let decodedTx = bnbDecoder.decode(bnbSend, 'Transfer');
+let decodedTx = bnbDecoder.decodeTransfer(bnbSend);
 console.log(JSON.stringify(decodedTx));
 
 /*
@@ -32,11 +32,7 @@ console.log(JSON.stringify(decodedTx));
       "inputs":
       [
         {
-          "address":
-            {
-              "type":"Buffer",
-              "data":[209,164,42,129,95,198,163,57,236,216,191,205,9,61,209,168,53,244,14,19]
-            },
+          "address": "bnb16xjz4q2lc63nnmxchlxsj0w34q6lgrsnhff60l"
           "coins":
           [
             {
@@ -49,11 +45,7 @@ console.log(JSON.stringify(decodedTx));
       "outputs":
       [
         {
-          "address":
-          {
-            "type":"Buffer",
-            "data":[224,161,122,62,201,221,253,29,156,139,78,23,223,6,34,198,121,255,168,152]
-          },
+          "address": "bnb1uzsh50kfmh73m8ytfcta7p3zceull2ycnttw5s",
           "coins":
           [
             {

@@ -63,7 +63,7 @@ test('base64', () => {
   }
 
   const decodeType = new stdTx()
-  let decodedTx = decoder.decode(txnDt, decodeType)
+  let decodedTx = decoder.decodeCustomType(txnDt, decodeType)
   expect(typeof decodedTx).toBe('object')
   expect(decodedTx).toHaveProperty('msgs')
   expect(decodedTx).toHaveProperty('signatures')
