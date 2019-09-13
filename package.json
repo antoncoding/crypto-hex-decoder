@@ -1,5 +1,4 @@
 {
-  "private": true,
   "name": "crypto-hex-decoder",
   "version": "2.0.0",
   "description": "Raw transaction decoder for different blockchains",
