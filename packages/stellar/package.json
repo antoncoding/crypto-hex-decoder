@@ -1,0 +1,17 @@
+{
+  "name": "@crypto-hex-decoder/stellar",
+  "version": "1.0.0",
+  "description": "Stellar transaction decoder",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest -t "
+  },
+  "keywords": [
+    "stellar",
+    "xlm",
+    "decode",
+    "transaction"
+  ],
+  "author": "anton",
+  "license": "ISC"
+}
