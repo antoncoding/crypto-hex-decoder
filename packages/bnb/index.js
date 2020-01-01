@@ -2,15 +2,15 @@ const unMarshalBinaryLengthPrefixed = require('./utils/amino')
 const addressUtil = require('./utils/bnb_addr_util')
 const TYPE = require('./utils/types')
 
-function decode(hex){
+function decode(hex, testnet=false){
   try{
-    return decodeTransfer(hex)
+    return decodeTransfer(hex, testnet)
   } catch (error){
     try{
-      return decodePlaceOrder(hex)
+      return decodePlaceOrder(hex, testnet)
     } catch (error){
       try{
-        return decodeCancelOrder(hex)
+        return decodeCancelOrder(hex, testnet)
       } catch(error){
         throw new Error('Transaction Type not supported')
       }
@@ -21,16 +21,17 @@ function decode(hex){
 /**
  * Decode standard transfer transaction.
  * @param {string} hex
+ * @param {boolean} testnet default = false
  **/
-function decodeTransfer(hex) {
+function decodeTransfer(hex, testnet=false) {
   let clonedType = clone(TYPE.Transfer)
   let tx = unMarshalBinaryLengthPrefixed(Buffer.from(hex, 'hex'), clonedType).val
   tx.msg.map(item => {
     item.inputs.map(input => {
-      input.address = addressUtil.encodeAddress(input.address)
+      input.address = addressUtil.encodeAddress(input.address, testnet)
     })
     item.outputs.map(output => {
-      output.address = addressUtil.encodeAddress(output.address)
+      output.address = addressUtil.encodeAddress(output.address, testnet)
     })
   })
   return tx
@@ -39,12 +40,13 @@ function decodeTransfer(hex) {
 /**
  * Decode bnb Place Order transaction
  * @param {string} hex
+ * @param {boolean} testnet default = false
  */
-function decodePlaceOrder(hex){
+function decodePlaceOrder(hex, testnet=false){
   let clonedType = clone(TYPE.PlaceOrder)
   let tx = unMarshalBinaryLengthPrefixed(Buffer.from(hex, 'hex'), clonedType).val
   tx.msg.map(item => {
-    item.sender = addressUtil.encodeAddress(item.sender)
+    item.sender = addressUtil.encodeAddress(item.sender, testnet)
   })
   return tx
 }
@@ -52,12 +54,13 @@ function decodePlaceOrder(hex){
 /**
  * Decode bnb Cancel Order transaction
  * @param {string} hex
+ * @param {boolean} testnet default = false
  */
-function decodeCancelOrder(hex){
+function decodeCancelOrder(hex, testnet=false){
   let clonedType = clone(TYPE.CancelOrder)
   let tx = unMarshalBinaryLengthPrefixed(Buffer.from(hex, 'hex'), clonedType).val
   tx.msg.map(item => {
-    item.sender = addressUtil.encodeAddress(item.sender)
+    item.sender = addressUtil.encodeAddress(item.sender, testnet)
   })
   return tx
 }
