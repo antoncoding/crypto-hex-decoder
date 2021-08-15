@@ -16,7 +16,7 @@ function decode (hex) {
         hex: input.script.toString('hex')
       }
     } else {
-      let decodedScript = bscript.toASM(input.script).split(" ")
+      let decodedScript = bscript.toASM(input.script)
       if(decodedScript.length === 2){
         input.type = 'P2PKH'
         input.script = {
