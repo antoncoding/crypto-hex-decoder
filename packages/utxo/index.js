@@ -26,7 +26,7 @@ function decode (hex) {
       }
       else{
         input.type = 'Unkown'
-        intput.script = {
+        input.script = {
           hex: decodedScript
         }
       }
