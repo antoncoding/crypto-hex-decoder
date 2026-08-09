@@ -92,8 +92,8 @@ const decodeObjectBinary = (bytes, type, isLengthPrefixed) => {
 
   // If registered concrete, consume and verify prefix bytes.
   if(type.msgType) {
-    bytes = bytes.slice(4)
-    objectOffset += 4
+    bytes = bytes.slice(3)
+    objectOffset += 3
   }
 
   let lastFieldNum = 0
